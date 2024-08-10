@@ -1,0 +1,13 @@
+<div class="tag-archive-widget">
+  <h3>Tags</h3>
+  <p>
+    {% assign tags = site.tags | sort  %}
+    {% for tag in tags %}
+        
+            <a href="{{ site.baseurl }}/tag/{{ tag[0] | slugify }}/">
+            {{ tag[0] }}
+            </a>
+        
+    {% endfor %}
+   </p>
+</div>

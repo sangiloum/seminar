@@ -1,0 +1,16 @@
+<div class="monthly-archive-widget">
+  <h3>Monthly Archives</h3>
+  <ul>
+    {% assign months = site.posts | group_by_exp: "post", "post.date | date: '%Y-%m'" %}
+    {% for month in months %}
+      {% assign year = month.name | split: "-" | first %}
+      {% assign month_num = month.name | split: "-" | last %}
+      {% assign month_name = year | append: "-" | append: month_num | append: "-01" | date: "%B" %}
+      <li>
+        <a href="{{ site.baseurl }}/{{ year }}/{{ month_num }}/">
+          {{ month_name }} {{ year }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
